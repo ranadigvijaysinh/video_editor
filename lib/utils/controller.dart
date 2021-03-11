@@ -238,7 +238,7 @@ class VideoEditorController extends ChangeNotifier {
   }) async {
     final FlutterFFmpegConfig _config = FlutterFFmpegConfig();
     final String tempPath = (await getTemporaryDirectory()).path;
-    final String videoPath = file.path;
+    final String videoPath = file.path.replaceAll(' ',"\$");
     if (name == null) name = path.basename(videoPath).split('.')[0];
     final String outputPath = tempPath + name + ".$format";
 
